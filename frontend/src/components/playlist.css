@@ -8,7 +8,7 @@
 body {
     background: #0F172A;
     color: #E2E8F0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,43 +17,33 @@ body {
     background-image:
         radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
-    overflow-y: auto; /* Added this line */
+    overflow-y: auto;
 }
 
 /* Wrapper */
 .playlist-wrapper {
     max-width: 1200px;
     width: 100%;
-    padding: 3rem;
+    padding: 2.5rem;
     background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(12px);
-    border-radius: 32px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(148, 163, 184, 0.1);
     position: relative;
     overflow: hidden;
 }
 
-.playlist-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.3), transparent);
-}
-
 /* Title */
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.75rem;
     font-weight: 800;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     background: linear-gradient(to right, #818CF8, #60A5FA, #34D399);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     text-align: center;
     position: relative;
 }
@@ -61,13 +51,13 @@ h1 {
 h1::after {
     content: '';
     position: absolute;
-    width: 60px;
-    height: 6px;
+    width: 50px;
+    height: 4px;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(to right, #818CF8, #60A5FA);
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* Controls */
@@ -75,21 +65,21 @@ h1::after {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
 .playlist-controls select,
 .playlist-controls input {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.15);
     color: #E2E8F0;
-    padding: 1rem 1.5rem;
-    border-radius: 16px;
-    font-size: 1.1rem;
-    min-width: 240px;
-    transition: all 0.3s ease;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    min-width: 220px;
+    transition: all 0.2s ease;
     backdrop-filter: blur(4px);
 }
 
@@ -97,19 +87,19 @@ h1::after {
 .playlist-controls input:focus {
     outline: none;
     border-color: #818CF8;
-    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25);
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
 }
 
 .playlist-controls button {
     background: linear-gradient(135deg, #818CF8, #60A5FA);
     color: white;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 16px;
-    font-size: 1.15rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -123,7 +113,7 @@ h1::after {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #60A5FA, #34D399);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     z-index: -1;
 }
 
@@ -132,26 +122,22 @@ h1::after {
 }
 
 .playlist-controls button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px -5px rgba(129, 140, 248, 0.4);
-}
-
-.playlist-controls button:active {
-    transform: translateY(1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -5px rgba(129, 140, 248, 0.4);
 }
 
 /* Search bar */
 .search-input {
     width: 100%;
-    max-width: 540px;
-    margin: 0 auto 3rem;
-    padding: 1.2rem 1.8rem;
-    background: rgba(30, 41, 59, 0.7);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(30, 41, 59, 0.5);
     color: #E2E8F0;
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    border-radius: 20px;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
     backdrop-filter: blur(4px);
     display: block;
 }
@@ -159,8 +145,8 @@ h1::after {
 .search-input:focus {
     outline: none;
     border-color: #818CF8;
-    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+    transform: translateY(-1px);
 }
 
 .search-input::placeholder {
@@ -170,67 +156,43 @@ h1::after {
 /* Layout */
 .songs-section {
     display: grid;
-    gap: 3rem;
+    gap: 2rem;
 }
 
-/* Add this media query for larger screens */
 @media (min-width: 769px) {
     .songs-section {
-        grid-template-columns: 1fr 1fr; /* Two equal width columns */
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 /* Boxes */
 .song-list,
 .playlist-view {
-    background: rgba(30, 41, 59, 0.5);
-    padding: 2.5rem;
-    border-radius: 24px;
-    max-height: 650px;
+    background: rgba(30, 41, 59, 0.4);
+    padding: 2rem;
+    border-radius: 18px;
+    max-height: 600px;
     overflow-y: auto;
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    transition: all 0.4s ease;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    transition: all 0.3s ease;
     position: relative;
     backdrop-filter: blur(8px);
 }
 
-.song-list::after,
-.playlist-view::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 1.5px;
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.3), rgba(96, 165, 250, 0.3), rgba(52, 211, 153, 0.2), rgba(129, 140, 248, 0.1));
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.song-list:hover::after,
-.playlist-view:hover::after {
-    opacity: 1;
-}
-
 .song-list:hover,
 .playlist-view:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .song-list::-webkit-scrollbar,
 .playlist-view::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .song-list::-webkit-scrollbar-track,
 .playlist-view::-webkit-scrollbar-track {
-    background-color: rgba(30, 41, 59, 0.3);
+    background-color: rgba(30, 41, 59, 0.2);
     border-radius: 10px;
 }
 
@@ -243,11 +205,11 @@ h1::after {
 .song-list h2,
 .playlist-view h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     color: #F1F5F9;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     position: relative;
     display: inline-block;
     left: 50%;
@@ -259,27 +221,25 @@ h1::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
     background: linear-gradient(to right, #818CF8, #60A5FA, transparent);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 /* Song Cards */
 .song-card {
-    background: rgba(30, 41, 59, 0.6);
-    border-radius: 18px;
-    padding: 1.4rem 1.8rem;
-    margin-bottom: 1.5rem;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(148, 163, 184, 0.08);
     position: relative;
-    overflow: hidden;
 }
 
 .song-card::before {
@@ -287,11 +247,12 @@ h1::after {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 3px;
     height: 100%;
     background: linear-gradient(to bottom, #818CF8, #60A5FA);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
+    border-radius: 3px 0 0 3px;
 }
 
 .song-card:hover::before {
@@ -299,110 +260,69 @@ h1::after {
 }
 
 .song-card:hover {
-    transform: translateX(5px);
-    background: rgba(51, 65, 85, 0.4);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateX(3px);
+    background: rgba(51, 65, 85, 0.3);
+    box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.1);
 }
 
 .song-card span {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     flex: 1;
     color: #E2E8F0;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     padding-right: 12px;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .song-card:hover span {
     color: #F8FAFC;
-    transform: translateX(5px);
 }
 
 /* Add/Remove Button */
 .song-card button.add-button {
     background: linear-gradient(135deg, #818CF8, #60A5FA);
     border: none;
-    padding: 0.7rem 1.3rem;
+    padding: 0.6rem 1.1rem;
     color: white;
-    border-radius: 14px;
-    font-size: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-left: 15px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.song-card button.add-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #60A5FA, #34D399);
-    transition: all 0.4s ease;
-    z-index: -1;
-}
-
-.song-card button.add-button:hover::before {
-    left: 0;
 }
 
 .song-card button.add-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(96, 165, 250, 0.2), 0 4px 6px -2px rgba(96, 165, 250, 0.1);
+    box-shadow: 0 5px 10px -3px rgba(96, 165, 250, 0.2);
+    background: linear-gradient(135deg, #60A5FA, #34D399);
 }
 
 .song-card button.remove-button {
     background: linear-gradient(135deg, #F87171, #FB7185);
     border: none;
-    padding: 0.7rem 1.3rem;
+    padding: 0.6rem 1.1rem;
     color: white;
-    border-radius: 14px;
-    font-size: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-left: 15px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.song-card button.remove-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #FB7185, #F43F5E);
-    transition: all 0.4s ease;
-    z-index: -1;
-}
-
-.song-card button.remove-button:hover::before {
-    left: 0;
 }
 
 .song-card button.remove-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(251, 113, 133, 0.2), 0 4px 6px -2px rgba(251, 113, 133, 0.1);
-}
-
-.song-card button:active {
-    transform: translateY(1px);
+    box-shadow: 0 5px 10px -3px rgba(251, 113, 133, 0.2);
+    background: linear-gradient(135deg, #FB7185, #F43F5E);
 }
 
 /* CSS for empty states */
 .empty-state {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     color: rgba(226, 232, 240, 0.6);
     display: flex;
     flex-direction: column;
@@ -411,9 +331,9 @@ h1::after {
 }
 
 .empty-state svg {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 1.8rem;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
     stroke: rgba(129, 140, 248, 0.5);
     animation: pulse 2s infinite;
 }
@@ -434,42 +354,24 @@ h1::after {
 }
 
 .empty-state p {
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     font-weight: 300;
 }
 
 /* Playlist Stats */
 .playlist-stats {
-    background: rgba(30, 41, 59, 0.6);
-    border-radius: 20px;
-    padding: 1.8rem;
-    margin-top: 2.5rem;
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    backdrop-filter: blur(4px);
-    position: relative;
-    overflow: hidden;
-}
-
-.playlist-stats::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 1.5px;
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.2), rgba(96, 165, 250, 0.2), transparent);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(148, 163, 184, 0.08);
 }
 
 .playlist-stats h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #F1F5F9;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     position: relative;
     display: inline-block;
 }
@@ -477,7 +379,7 @@ h1::after {
 .playlist-stats h3::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -6px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -487,18 +389,16 @@ h1::after {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
 }
 
 .stat-item {
     text-align: center;
-    padding: 1.2rem;
-    background: rgba(51, 65, 85, 0.3);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    padding: 1rem;
+    background: rgba(51, 65, 85, 0.2);
+    border-radius: 12px;
+    transition: all 0.2s ease;
 }
 
 .stat-item::before {
@@ -506,21 +406,21 @@ h1::after {
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 2px;
     height: 100%;
     background: linear-gradient(to bottom, #818CF8, #60A5FA);
 }
 
 .stat-item:hover {
-    transform: translateY(-5px);
-    background: rgba(51, 65, 85, 0.5);
+    transform: translateY(-3px);
+    background: rgba(51, 65, 85, 0.3);
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #F8FAFC;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     background: linear-gradient(to right, #818CF8, #60A5FA);
     -webkit-background-clip: text;
     background-clip: text;
@@ -528,48 +428,50 @@ h1::after {
 }
 
 .stat-label {
-    font-size: 0.95rem;
-    color: rgba(226, 232, 240, 0.8);
+    font-size: 0.9rem;
+    color: rgba(226, 232, 240, 0.7);
     font-weight: 300;
+}
+
+/* Style for clickable artist names */
+.song-card .artist {
+    cursor: pointer;
+    color: #60A5FA;
+    transition: color 0.2s ease;
+}
+
+.song-card .artist:hover {
+    color: #34D399;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-
     .playlist-wrapper {
-        padding: 2rem;
+        padding: 1.75rem;
     }
 
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.25rem;
     }
-
-    .songs-section {
-        gap: 2rem;
-        /* It will default to stacking here as grid-template-columns is not explicitly set to two columns */
-    }
-
+    
     .song-list,
     .playlist-view {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .playlist-wrapper {
-        padding: 1.5rem;
-        border-radius: 24px;
+        padding: 1.25rem;
+        border-radius: 20px;
     }
 
     h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .playlist-controls {
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .playlist-controls select,
@@ -577,46 +479,28 @@ h1::after {
     .playlist-controls button {
         width: 100%;
         min-width: 0;
-        padding: 0.8rem 1.2rem;
+        padding: 0.7rem 1rem;
     }
 
     .song-list,
     .playlist-view {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .song-card {
-        padding: 1rem;
+        padding: 0.9rem;
     }
 
     .song-card span {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .song-card button {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.9rem;
+        padding: 0.45rem 0.7rem;
+        font-size: 0.85rem;
     }
 
     .stat-value {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
-}
-
-/* Media Query for larger screens to display side by side */
-@media (min-width: 769px) {
-    .songs-section {
-        grid-template-columns: 1fr 1fr; /* Two equal width columns */
-    }
-}
-
-/* Style for clickable artist names */
-.song-card .artist {
-    cursor: pointer;
-    color: #60A5FA;
-    transition: color 0.3s ease;
-}
-
-.song-card .artist:hover {
-    color: #34D399;
 }
