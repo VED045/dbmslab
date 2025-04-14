@@ -3,10 +3,22 @@ const router = express.Router();
 const db = require('../db'); // your MySQL db connection
 
 // Get all playlists (fetching from 'playlist' table)
+// router.get('/playlists', (req, res) => {
+//  db.query('SELECT Playlist_name FROM playlist', (err, results) => {
+//    if (err) return res.status(500).json({ error: err });
+//    res.json(results);
+//  });
+// });
+
 router.get('/playlists', (req, res) => {
-  db.query('SELECT Playlist_name FROM playlist', (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-    res.json(results);
+  db.query('SELECT * FROM playlist', (err, results) => { // Changed to SELECT *
+    if (err) {
+      console.error('Error fetching playlists:', err);
+      return res.status(500).json({ error: err });
+    }
+    console.log('Playlists fetched:', results); // Added logging
+    const playlistNames = results.map(row => ({ Playlist_name: row.Playlist_name }));
+    res.json(playlistNames);
   });
 });
 
@@ -64,8 +76,8 @@ router.post('/playlists/save', (req, res) => {
   const { userId, playlistName } = req.body;
 
   // Insert the new playlist into the playlist table
-  const query = 'INSERT INTO playlist (Playlist_name) VALUES (?)';
-  db.query(query, [playlistName], (err, results) => {
+  const query = 'INSERT INTO playlist (Playlist_name, user_id) VALUES (?, ?)'; // Added user_id
+  db.query(query, [playlistName, userId], (err, results) => { // Added userId to the query
     if (err) {
       console.error('Error creating new playlist:', err);
       return res.status(500).json({ error: 'Failed to create new playlist' });
@@ -73,5 +85,20 @@ router.post('/playlists/save', (req, res) => {
     res.status(201).json({ message: 'New playlist created successfully!' });
   });
 });
+
+// // INCORRECT CODE - COMMENTED OUT OR DELETE THIS BLOCK
+// router.post('/playlists/save', (req, res) => {
+//   const { userId, playlistName } = req.body;
+//
+//   const query = 'SELECT * FROM playlist LIMIT 1'; // Simple select query
+//   db.query(query, (err, results) => {
+//     if (err) {
+//       console.error('Error querying playlist table:', err);
+//       return res.status(500).json({ error: 'Failed to query playlist table' });
+//     }
+//     console.log('Successfully queried playlist table:', results);
+//     res.status(200).json({ message: 'Successfully queried playlist table', results });
+//   });
+// });
 
 module.exports = router;

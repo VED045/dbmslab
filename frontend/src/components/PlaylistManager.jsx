@@ -81,29 +81,39 @@ const PlaylistManager = () => {
     };
 
     const handleNewPlaylist = () => {
-        if (newPlaylist.trim()) {
-            // Call the backend to create the new playlist
-            fetch('http://localhost:3000/api/playlists/save', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId, playlistName: newPlaylist }),
-            })
-                .then(res => res.json())
-                .then(data => {
-                    alert(data.message); // New playlist created successfully!
-                    // After creating, fetch the updated list of playlists
-                    fetch('http://localhost:3000/api/playlists')
-                        .then(res => res.json())
-                        .then(updatedPlaylists => {
-                            setBackendPlaylists(updatedPlaylists);
-                            setSelectedPlaylist(newPlaylist); // Select the newly created playlist
-                        });
-                    setNewPlaylist('');
-                });
-        }
-    };
+                console.log("handleNewPlaylist function called!"); // Log when the function starts
+                if (newPlaylist.trim()) {
+                    console.log("New playlist name is:", newPlaylist); // Log the playlist name
+                    // Call the backend to create the new playlist
+                    fetch('http://localhost:3000/api/playlists/save', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ userId, playlistName: newPlaylist }),
+                    })
+                        .then(res => {
+                            console.log("Response received from /api/playlists/save:", res); // Log the response object
+                            return res.json();
+                        })
+                        .then(data => {
+                            console.log("Data from /api/playlists/save:", data); // Log the data from the response
+                            alert(data.message); // New playlist created successfully!
+                            // After creating, fetch the updated list of playlists
+                            fetch('http://localhost:3000/api/playlists')
+                                .then(res => res.json())
+                                .then(updatedPlaylists => {
+                                    console.log("Updated playlists fetched:", updatedPlaylists); // Log the updated playlists
+                                    setBackendPlaylists(updatedPlaylists);
+                                    setSelectedPlaylist(newPlaylist); // Select the newly created playlist
+                                });
+                            setNewPlaylist('');
+                        })
+                        .catch(error => {
+                            console.error("Error creating playlist:", error); // Log any errors during the fetch
+                        });
+                }
+            };
 
     const handleArtistClick = (artistName) => {
         setArtistFilter(artistName);
@@ -137,6 +147,7 @@ const PlaylistManager = () => {
                     onChange={(e) => setNewPlaylist(e.target.value)}
                 />
                 <button onClick={handleNewPlaylist}>➕ Add Playlist</button>
+                
             </div>
 
             <input
